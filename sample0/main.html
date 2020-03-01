@@ -1,37 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Menu</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+	 <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>DarkModeJS – nickdeny</title>
+  <meta name="description" content="Pure Javascript, without any plugins and jQuery">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DarkModeJS – nickdeny">
+  <meta property="og:url" content="https://nickdeny.com">
+  <meta property="og:description" content="Pure Javascript, without any plugins and jQuery">
+  <meta property="product:brand" content="nickdeny">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<noscript>
+		<link rel="stylesheet" type="text/css" href="light.css">
+	</noscript>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108356992-4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-108356992-4');
+	</script>
 </head>
 <body>
-    <p>In progress of creating personal Favorites Web Page<br>
-    Displays favorite links in multiplle buttons with each buttonn having multiple levels</p>
-    <div class="topnav" id="myTopnav">
-      <a href="#home" class="active">Title0</a>
-      <a href="#news">Title1</a>
-      <div class="dropdown">
-        <button class="dropbtn">Dropdown 
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="https://www.dcrainmaker.com/2017/11/power-meters-annual-buyers-guide-2017-edition.html">power meters</a>
-          <a href="https://www.hiroom2.com/2017/06/19/debian-9-install-xrdp/">Debian Remote Desktop</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> 
-      <a href="#about">Title 2</a>
-      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	<header>
+    <div class="container">
+      <h1>
+        Responsive navigaion
+      </h1>
+      <p class="header-description">
+        The Woo Clan
+      </p>
     </div>
+  </header>
+  <main>
+    <div class="container">
+      <section id="example">
+        <h2>Picture Area</h2>
+        <p>Descriptions</p>
+      </section>
+      <section id="contacts">
+        <h2>About & Contact</h2>
+        <ul class="contacts-btns">
+          <li>
+            <a class="btn btn" href="" target="_blank">
+              Button to external link
+            </a>
+          </li>
+          <li>
+            <a class="btn" href="" target="_blank">
+              Button 2 to external link
+            </a>
+          </li>
+          <li>
+            <a class="btn" href="mailto:hello@thewooclan.com">
+              Contact me
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+	<footer>
+    <div class="container">
+      <p>Footer Area</p>
+    </div>
+  </footer>
+  <div class="flying">
+    <button id="mode-remover" class="btn hidden" title="Clear saved mode">
+      &times;
+    </button>
+    <button id="mode-toggler" class="btn">
+      Turn on Javascript
+    </button>
+  </div>
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+	<script src="dist/darkmode.min.js"></script>
+	<script>
+    // Plugin Initialization
+    var options = {
+			light: 'light.css',
+			dark: 'dark.css',
+    }
+    var DarkMode = new DarkMode(options)
+
+    // Remove mode from LocalStorage if button clicked
+    var ModeRemover = document.getElementById('mode-remover')
+    ModeRemover.onclick = function() {
+      DarkMode.clearSavedMode()
+      changeTogglerText()
+      getModeRemoverState()
+    }
+
+    // Detects mode on LocalStorage, if `true` – display a button
+    getModeRemoverState()
+    function getModeRemoverState() {
+      if(DarkMode.isModeSaved())
+        ModeRemover.classList.remove('hidden')
+      else
+        ModeRemover.classList.add('hidden')
+    }
     
-    <div style="padding-left:16px">
-      <h2>Responsive Topnav with Dropdown</h2>
-      <p>Resize the browser window to see how it works.</p>
-      <p>Hover over the dropdown button to open menu.</p>
-    </div>
+    // Function for `mode-toggler` button
+    var ModeToggler = document.getElementById('mode-toggler')
+    changeTogglerText()
+	  ModeToggler.onclick = function() {
+      DarkMode.toggleMode()
+      changeTogglerText()
+    }
+    
+    // Changes `mode-toggler` text on mode changing
+    function changeTogglerText() {
+      getModeRemoverState()
+      var currentMode = DarkMode.getMode()
+      ModeToggler.textContent = currentMode === 'light'  ? 'To dark 🌝' : 'To light 🌚'
+    }
+	</script>
 </body>
 </html>
