@@ -41,7 +41,7 @@ h2:before {
 	right: 0;
 	height: 6px;
 	width: 72px;
-	background-color: #3bc4fb;
+	background-color: #a5c8d6;
 	z-index: -1;
 }
 
@@ -55,8 +55,8 @@ main p {
 	max-width: 640px;
 }
 
-.header-description {
-	margin: 20px 0 0 0;
+.thewooclan {
+	margin: 20px 0 0 400px;
 	font-weight: 500;
 	font-size: 16px;
 	letter-spacing: .5px;
@@ -124,7 +124,7 @@ footer {
 	display: inline-block;
 	cursor: pointer;
 	padding: 8px 16px;
-	border: 2px solid #3bc4fb;
+	border: 2px solid #a5c8d6;
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 700;
@@ -138,7 +138,7 @@ footer {
 }
 
 .btn:hover {
-	background-color: #3bc4fb;
+	background-color: #a5c8d6;
 }
 
 .btn:focus {
@@ -160,14 +160,6 @@ pre {
 	-ms-overflow-style: scrollbar;
 }
 
-code {
-	font-size: 14px;
-	line-height: 1.8;
-	display: block;
-	overflow-x: auto;
-	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
 .contacts-btns {
 	padding: 10px 0 10px 0;
 	margin: -10px;
@@ -179,17 +171,6 @@ code {
 .contacts-btns > li {
 	list-style: none;
 	padding: 10px;
-}
-
-.contacts-reddit {
-	padding-top: 30px;
-	font-style: italic;
-	font-weight: 500;
-	font-size: 14px;
-}
-
-.contacts-reddit > a {
-	color: inherit;
 }
 
 @media(max-width: 767px) {
@@ -221,4 +202,29 @@ code {
 	section {
 		padding-bottom: 50px;
 	}
+}
+/******* nav **********/
+.nav {
+	display: inline-block;
+	cursor: pointer;
+	padding: 8px 16px;
+	border: 2px solid #a5c8d6;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1;
+	color: inherit;
+	background-color: transparent;
+	text-decoration: none;
+	white-space: nowrap;
+	user-select: none;
+	transition: all .15s ease;
+}
+
+.nav:hover {
+	background-color: #a5c8d6;
+}
+
+.nav:focus {
+	outline: none;
 }
